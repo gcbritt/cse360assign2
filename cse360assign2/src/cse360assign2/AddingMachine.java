@@ -9,6 +9,7 @@ package cse360assign2;
 public class AddingMachine 
 {
 	private int total;
+	private String history = "0";
 	
 	/**
 	 * The constructor sets <code>total</code> to 0 by default whenever a new
@@ -16,7 +17,7 @@ public class AddingMachine
 	 */
 	public AddingMachine() 
 	{
-		total = 0;  // not needed - included for clarity
+		this.total = 0;
 	}
 	
 	/**
@@ -25,27 +26,32 @@ public class AddingMachine
 	 */
 	public int getTotal() 
 	{
-		return 0;
+		return this.total;
 	}
 	
 	/**
-	 * Adds an integer to <code>total</code>
+	 * Adds an integer to <code>total</code>. Updates <code>history</code> accordingly.
 	 * 
 	 * @param value is an integer to add to <code>total</code>
 	 */
 	public void add(int value) 
 	{
+		this.total += value;
 		
+		this.history += " + " + value;
 	}
 	
 	/**
-	 * Subtracts an integer from <code>total</code>
+	 * Subtracts an integer from <code>total</code>. Updates <code>history</code> 
+	 * accordingly.
 	 * 
 	 * @param value is the integer to subtract from <code>total</code>
 	 */
 	public void subtract(int value) 
 	{
+		this.total -= value;
 		
+		this.history += " - " + value;
 	}
 	
 	/**
@@ -54,14 +60,16 @@ public class AddingMachine
 	 */
 	public String toString() 
 	{
-		return "";
+		return this.history;
 	}
 
 	/**
-	 * Clears the history of an <code>AddingMachine</code> object.
+	 * Clears the history of an <code>AddingMachine</code> object by setting it to the
+	 * default value. Also clears <code>total</code> to the default value.
 	 */
 	public void clear() 
 	{
-	
+		this.total = 0;
+		this.history = "0";
 	}
 }
